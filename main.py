@@ -4,7 +4,7 @@ from cvzone.SerialModule import SerialObject
 
 cap = cv2.VideoCapture(0)
 detector = FaceDetector()
-arduino = SerialObject('COM_PORT', 9600)  # Replace 'COM_PORT' with your Arduino's COM port
+arduino = SerialObject('/dev/cu.usbmodem11101', 9600)  # Replace 'COM_PORT' with your Arduino's COM port
 
 while True:
     success, frame = cap.read()
