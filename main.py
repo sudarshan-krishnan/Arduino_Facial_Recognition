@@ -1,3 +1,5 @@
+
+
 import cv2
 from cvzone.FaceDetectionModule import FaceDetector
 from cvzone.SerialModule import SerialObject
@@ -5,7 +7,7 @@ from cvzone.SerialModule import SerialObject
 # Initialize the video capture and the detector
 cap = cv2.VideoCapture(0)
 detector = FaceDetector()
-arduino = SerialObject('/dev/cu.usbmodem11101', 9600)
+arduino = SerialObject('/dev/cu.usbmodem11101', 9600)  
 
 while True:
     # Read a new frame from the video capture
@@ -16,11 +18,13 @@ while True:
         # Detect faces in the frame
         img, bboxes = detector.findFaces(frame)
 
-    if bboxes:
-        arduino.sendData([1,0])
-
-       else:
-        arduino.sendData([0,1]) 
+        # Check if any faces are detected
+        if bboxes:
+            # Send data to Arduino when a face is detected
+            arduino.sendData([1, 0])
+        else:
+            # Send different data to Arduino when no faces are detected
+            arduino.sendData([0, 1])
 
         # Display the frame with detected faces
         cv2.imshow("Video", img)
