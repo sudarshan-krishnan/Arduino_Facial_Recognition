@@ -18,6 +18,9 @@ void loop() {
     faceDetected = (state == '1');
   }
 
+
+
+
   if (faceDetected) {
     servoMotor.write(90);
     digitalWrite(ledPin, HIGH);
@@ -27,5 +30,7 @@ void loop() {
     digitalWrite(ledPin, LOW);
     Serial.println("No face detected, servo at 0 degrees, LED off");
   }
-  delay(15);
+  delay(500);
+  
 }
+
