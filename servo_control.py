@@ -5,17 +5,17 @@ from time import sleep
 port = '/dev/cu.usbmodem11101'
 board = Arduino(port)
 
-board.digital[10].mode = SERVO
+board.digital[9].mode = SERVO
 
 def openDoor():
     print("Opening")
-    board.digital[10].write(120)
+    board.digital[9].write(120)
     print("Opening Finished")
     # sleep(2)
 
 def closeDoor():
     print("Closing")
-    board.digital[10].write(30)
+    board.digital[9].write(30)
     print("Closing Finished")
     # sleep(2)
 
