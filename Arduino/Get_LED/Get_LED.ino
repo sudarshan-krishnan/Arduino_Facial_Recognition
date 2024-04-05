@@ -11,6 +11,7 @@ void setup() {
   servoMotor.attach(servoPin);
   pinMode(ledPin, OUTPUT);
   Serial.begin(9600);
+  Serial.println("Arduino initialized"); // Print initialization message
 }
 
 void loop() {
@@ -27,9 +28,11 @@ void loop() {
     servoMotor.write(90);
     delay(15);
     digitalWrite(ledPin, HIGH);
+    Serial.println("Face detected, servo at 90 degrees, LED on"); // Print stage
   } else {
     servoMotor.write(0);
     delay(15);
     digitalWrite(ledPin, LOW);
+    Serial.println("No face detected, servo at 0 degrees, LED off"); // Print stage
   }
 }
