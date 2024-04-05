@@ -11,7 +11,7 @@ while True:
     if success:
         img, bboxes = detector.findFaces(frame)
         if bboxes:
-            arduino.sendData([1])  # Face detected
+            arduino.sendData(['1'])  # Face detected
         else:
             arduino.sendData([0])  # No face detected
         cv2.imshow("Video", img)
