@@ -1,9 +1,11 @@
 import cv2
 from cvzone.FaceDetectionModule import FaceDetector
+from cvzone.SerialModule import SerialObject
 
 # Initialize the video capture and the detector
 cap = cv2.VideoCapture(0)
 detector = FaceDetector()
+arduino = SerialObject('/dev/cu.usbmodem11101', 9600)
 
 while True:
     # Read a new frame from the video capture
