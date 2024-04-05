@@ -1,18 +1,27 @@
-#include <cvzone.h>
+#include <Servo.h>
 
-
-SerialData serialData(2, 1);  // Assuming SerialData is a class from cvzone library
-int valsRec[2];  // Array of int with size numOfValsRec
+Servo servoMotor; 
+int servoPin = 9; 
+int pos = 0;      
 
 void setup() {
-  pinMode(13, OUTPUT);  // Set the green LED pin to output mode
-  pinMode(12, OUTPUT);  // Set the red LED pin to output mode
-  serialData.begin();   // Initialize the serial data object
+  servoMotor.attach(servoPin); 
+  Serial.begin(9600);          
 }
 
 void loop() {
-  serialData.get(valsRec);    // Receive the data into valsRec array
-  digitalWrite(13, valsRec[0]);  // Set the green LED according to valsRec[0]
-  digitalWrite(12, valsRec[1]);  // Set the red LED according to valsRec[1]
-  delay(10);  // Small delay to debounce
+  if (Serial.available() > 0) {
+    int state = Serial.read(); 
+    if (state == '1') {
+      //for (pos = 0; pos <= 90; pos += 1) { 
+        servoMotor.write(pos);
+        delay(15); 
+     // }
+   } else {
+   //  for (pos = 90; pos >= 0; pos -= 1) { 
+       servoMotor.write(0);
+       delay(15); 
+     }
+    }
+  }
 }
