@@ -1,27 +1,36 @@
 #include <Servo.h>
 
-Servo servoMotor; 
-int servoPin = 9; 
-int pos = 0;      
+Servo servoMotor;
+int servoPin = 9;
+int pos = 0;
+
+int ledPin = 13;
+bool faceDetected = false;
 
 void setup() {
-  servoMotor.attach(servoPin); 
-  Serial.begin(9600);          
+  servoMotor.attach(servoPin);
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
   if (Serial.available() > 0) {
-    int state = Serial.read(); 
+    int state = Serial.read();
     if (state == '1') {
-      //for (pos = 0; pos <= 90; pos += 1) { 
-        servoMotor.write(pos);
-        delay(15); 
-     // }
-   } else {
-   //  for (pos = 90; pos >= 0; pos -= 1) { 
-       servoMotor.write(0);
-       delay(15); 
-     }
+      faceDetected = true;
+    } else {
+      faceDetected = false;
     }
+  }
+  
+  if (faceDetected) {
+      servoMotor.write(90);
+      delay(15);
+
+    digitalWrite(ledPin, HIGH);
+  } else {
+      servoMotor.write(0);
+      delay(15);
+    digitalWrite(ledPin, LOW);
   }
 }
