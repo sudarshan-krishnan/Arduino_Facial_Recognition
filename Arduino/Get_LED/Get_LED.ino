@@ -1,5 +1,6 @@
 #include <cvzone.h>
 
+
 SerialData serialData(2, 1);  // Assuming SerialData is a class from cvzone library
 int valsRec[2];  // Array of int with size numOfValsRec
 
