@@ -1,14 +1,29 @@
 import cv2
 from cvzone.FaceDetectionModule import FaceDetector
 
-cap=cv2.VideoCapture(0)
-detector=FaceDetector()
-
+# Initialize the video capture and the detector
+cap = cv2.VideoCapture(0)
+detector = FaceDetector()
 
 while True:
-    success,frame=cap.read()
-    img, bBxoes = detector.findFaces(img)
+    # Read a new frame from the video capture
+    success, frame = cap.read()
 
-    cv2.imshow("Video",img)
+    # Check if the frame was captured successfully
+    if success:
+        # Detect faces in the frame
+        img, bboxes = detector.findFaces(frame)
 
-    cv2.waitKey(1)
+        # Display the frame with detected faces
+        cv2.imshow("Video", img)
+
+        # Check for the 'q' key to break out of the loop
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
+        print("Failed to capture frame")
+        break
+
+# Release the video capture and close all windows
+cap.release()
+cv2.destroyAllWindows()
