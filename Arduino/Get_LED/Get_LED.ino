@@ -22,12 +22,15 @@ void loop() {
       faceDetected = false;
     }
   }
+
+    Serial.print(state);
   
   if (faceDetected) {
       servoMotor.write(90);
       delay(15);
 
     digitalWrite(ledPin, HIGH);
+
   } else {
       servoMotor.write(0);
       delay(15);
