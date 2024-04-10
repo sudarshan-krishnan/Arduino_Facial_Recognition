@@ -38,4 +38,4 @@ Feel free to contribute or suggest improvements to this project. Let's make our 
 
 ---
 
-And further htanks to our two friends Abhisar Anand for helping us with the OpenCV integration to our project and Prakhar Verma for implementing the Arduino code and functionalities.
+And further thanks to our two friends **Abhisar Anand** - _Abhisar Anand_ - [Abhisar Anand](https://github.com/AbhisarAnand) for helping us with the OpenCV integration to our project and  **Prakhar Verma** - _iPrakharV_ - [Prakhar Verma](https://github.com/iPrakharV)  for implementing the Arduino code and functionalities.
