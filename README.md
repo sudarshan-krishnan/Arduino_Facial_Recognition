@@ -34,6 +34,8 @@ This Arduino project is designed to turn on a fan only when humans are recognize
 ### Acknowledgements
 This project was developed as part of the Dean's Ambassador Program, aimed at inspiring innovation and technology adoption in high schools.
 
+Feel free to contribute or suggest improvements to this project. Let's make our world more energy-efficient and tech-savvy!
+
 ---
 
-Feel free to contribute or suggest improvements to this project. Let's make our world more energy-efficient and tech-savvy!
+And further htanks to our two friends Abhisar Anand for helping us with the OpenCV integration to our project and Prakhar Verma for implementing the Arduino code and functionalities.
